@@ -1,13 +1,17 @@
-var RottenMovie = Backbone.Model.extend({
-
-});
+var RottenMovie = Backbone.Model.extend({});
 
 var RottenMoviesCollection = Backbone.Collection.extend({
-	
 	model: RottenMovie,
-
-	// url: 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=f9xctxenkytzyesfy4f2zsqf&limit=40'
-	// parse: function(data){
-		// return data.results
-	// }
+	
+	parse: function(data){
+		return data.movies
+	}
 })
+
+	// This is better than doing the manual fetching in my main.js
+		// I will still need to run fetch on my collection
+
+	// parse: function(data){
+		// return data.movies
+	// }
+	// need to start working with listenTo events

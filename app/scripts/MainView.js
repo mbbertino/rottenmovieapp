@@ -1,15 +1,21 @@
-var MainView = Backbone.View.extedn({
+var MainView = Backbone.View.extend({
+	
 	className: 'main-fadein',
+
+	events: {
+		"click .js-close-modal": "remove"
+	},
 
 	renderTemplate: _.template($('#main-view-template').text()),
 
 	initialize: function() {
-		$('.main-list').empty)();
 		this.render();
-		$('.main-list').append( this.el );
+		$('.js-marketing').append( this.el );
 	},
 
 	render: function() {
-		this.$el.html(renderTemplate(this.model))
+		this.$el.html(this.renderTemplate(this.model))
 	},
+
+
 })
