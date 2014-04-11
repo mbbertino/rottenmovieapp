@@ -1,26 +1,28 @@
 var ListView = Backbone.View.extend({
-	// tagName: 'a',
+  // tagName: 'a',
 
-	className: 'movie-unit',
-	
-	renderTemplate: _.template($('#list-template').text()),
+  className: 'movie-unit',
 
-	events: {
-		"click .js-movie-thumbnail": "mainMovieView"
-	},
+  renderTemplate: _.template($('#list-template').text()),
 
-	initialize: function() {
-		$('.js-movie-list').append( this.el );
-		this.render();
-		// this.$el.attr({href: "#movies/main-view/" + this.model.get('title') })
-	},
+  events: {
+    "click .js-movie-thumbnail": "mainMovieView"
+  },
 
-	render: function(){
-		this.$el.html(this.renderTemplate(this.model))
-		//  need to use something along the lines of this.model.get()
-	},
+  initialize: function() {
+    $('.js-movie-list').append(this.el);
+    this.render();
+    // this.$el.attr({href: "#movies/main-view/" + this.model.get('title') })
+  },
 
-	mainMovieView: function(){
-		new MainView({model: this.model})
-	}
+  render: function() {
+    this.$el.html(this.renderTemplate(this.model))
+    //  need to use something along the lines of this.model.get()
+  },
+
+  mainMovieView: function() {
+    new MainView({
+      model: this.model
+    })
+  }
 })
